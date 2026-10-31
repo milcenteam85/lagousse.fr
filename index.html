@@ -427,15 +427,15 @@ body{width:100vw!important;max-width:100vw!important;overflow-x:hidden!important
 }
 </style>
 <style>
-.compteur{display:flex;align-items:center;gap:22px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
-padding:20px 0;margin-top:56px}
+.compteur{display:flex;align-items:center;gap:22px;background:var(--ink);color:var(--kraft);
+padding:26px 28px;margin-top:56px;border:none}
 .compteur .cc{display:flex;align-items:baseline;gap:7px;flex:0 0 auto;min-width:96px}
 .compteur .n{font-size:clamp(38px,6vw,64px);font-weight:800;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
-.compteur .u{font-size:18px;font-weight:700;letter-spacing:.02em;opacity:.7}
+.compteur .u{font-size:18px;font-weight:700;letter-spacing:.02em;opacity:.75;color:var(--kraft)}
 .compteur .ct{display:flex;flex-direction:column;gap:4px}
 .compteur .ct b{font-size:14px;font-weight:600;letter-spacing:.01em}
-.compteur .ct span{font-size:13px;opacity:.62;line-height:1.4}
-@media(max-width:680px){.compteur{gap:14px;margin-top:38px;padding:16px 0}.compteur .ct b{font-size:12.5px}.compteur .ct span{font-size:11.5px}}
+.compteur .ct span{font-size:13px;opacity:.62;line-height:1.4;color:var(--kraft)}
+@media(max-width:680px){.compteur{flex-direction:column;align-items:flex-start;gap:6px;margin-top:32px;padding:18px 16px}.compteur .ct span{font-size:11.5px}}
 </style>
 <script>
 (function(){
