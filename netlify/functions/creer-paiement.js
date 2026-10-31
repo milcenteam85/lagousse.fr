@@ -76,6 +76,7 @@ exports.handler = async (event) => {
   const domicile = client.port === "home";
   const montantPort = total >= FRANCO ? 0 : (domicile ? PORT_DOMICILE : PORT_RELAIS);
   params.set("shipping_options[0][shipping_rate_data][type]", "fixed_amount");
+  params.set("shipping_options[0][shipping_rate_data][fixed_amount][currency]", "eur");
   params.set("shipping_options[0][shipping_rate_data][fixed_amount][amount]", String(montantPort));
   params.set("shipping_options[0][shipping_rate_data][display_name]",
     montantPort === 0 ? "Livraison offerte" : (domicile ? "Livraison à domicile" : "Point relais"));
