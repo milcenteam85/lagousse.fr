@@ -183,7 +183,7 @@ header .brand{justify-content:center!important}
 <h2>Deux sucres</h2>
 <div class="cartes">
 <div class="carte"><h3>Betterave</h3><div class="sub">blanc</div><p>Le sucre blanc classique, français. Neutre, il laisse la vanille parler.</p></div>
-<div class="carte"><h3>Canne</h3><div class="sub">légèrement roux</div><p>Un sucre de canne non raffiné, un peu plus roux, qui ajoute une note de caramel.</p></div>
+<div class="carte"><h3>Canne</h3><div class="sub">blond</div><p>Un sucre de canne blond, un peu plus doux, qui ajoute une note de caramel.</p></div>
 </div>
 </section>
 
@@ -296,7 +296,7 @@ font-weight:800;letter-spacing:.05em;text-transform:uppercase;cursor:pointer}
   else{L.innerHTML=p.map(function(l,i){
    return '<div class="l"><div><div class="nom">'+l.fmt+'</div><div class="var">'+
      '<button data-v="'+i+'" data-set="betterave" class="'+(l.var==='betterave'?'on':'')+'">Blanc</button>'+
-     '<button data-v="'+i+'" data-set="canne" class="'+(l.var==='canne'?'on':'')+'">Roux</button></div></div>'+
+     '<button data-v="'+i+'" data-set="canne" class="'+(l.var==='canne'?'on':'')+'">Blond</button></div></div>'+
    '<div class="q"><button data-q="-1" data-i="'+i+'">−</button><span>'+l.q+'</span><button data-q="1" data-i="'+i+'">+</button></div></div>';
   }).join('');}
   document.getElementById('ptot').textContent=t.toFixed(2).replace('.',',')+' €';
