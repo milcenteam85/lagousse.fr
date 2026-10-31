@@ -2,11 +2,11 @@
 // Création d'une session de paiement Stripe Checkout.
 // Les prix sont recalculés ici, jamais repris du navigateur.
 
-const PRIX = { "100 g": 500, "250 g": 900, "500 g": 1500, "1 kg": 2500 };
+const PRIX = { "100 g": 500, "500 g": 1500, "1 kg": 2500 };
 const PORT_RELAIS = 390;
 const PORT_DOMICILE = 690;
 const FRANCO = 2500;
-const POIDS = { "100 g": 0.1, "250 g": 0.25, "500 g": 0.5, "1 kg": 1 };
+const POIDS = { "100 g": 0.1, "500 g": 0.5, "1 kg": 1 };
 
 const json = (code, body) => ({
   statusCode: code,
