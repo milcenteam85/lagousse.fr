@@ -161,14 +161,14 @@ header .brand{justify-content:center!important}
 <div class="ing-cell">
   <div class="ing-ico"><img class="ing-svg ing-cube" src="sucre.svg" alt=""></div>
   <svg class="ing-fleche f1" viewBox="0 0 200 118" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1b1712" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M196 104 C177 112 155 106 144 92 C133 78 144 64 132 49 C117 31 83 20 30 17"/><path d="M46 24 C41 21.5 36 19.5 30 18 C34 12.5 38 8 43 4.5"/></svg>
-  <div class="ing-txt"><p>Ce ne sont pas des glaçons,<br>mais bien des grains de sucre.</p></div>
+  <div class="ing-txt"><svg class="ing-fleche-m f1m" viewBox="0 0 80 86" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1b1712" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M56 84 C60 60 48 36 34 18"/><path d="M46 27 C42 24 38 21 34 17.5 C32 23 30.5 28 29.5 33"/></svg><p>Ce ne sont pas des glaçons,<br>mais bien des grains de sucre.</p></div>
   <b class="ing-lab">Ingrédient 1</b><p class="ing-nom">Sucre.</p>
 </div>
 <div class="plus" aria-hidden="true">+</div>
 <div class="ing-cell">
   <div class="ing-ico"><img class="ing-svg ing-pod" src="pod.svg" alt="" width="20" height="126"></div>
   <svg class="ing-fleche f2" viewBox="0 0 210 110" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1b1712" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M8 88 C52 92 106 78 148 58 C158 53 166 48 174 44"/><path d="M166 55.5 L174 44 L159.5 42.2"/></svg>
-  <div class="ing-txt"><p>Pas besoin de te la présenter,<br>le dessin est parlant, non&nbsp;?</p></div>
+  <div class="ing-txt"><svg class="ing-fleche-m f2m" viewBox="0 0 80 86" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1b1712" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 84 C20 60 32 36 46 18"/><path d="M34 27 C38 24 42 21 46 17.5 C48 23 49.5 28 50.5 33"/></svg><p>Pas besoin de te la présenter,<br>le dessin est parlant, non&nbsp;?</p></div>
   <b class="ing-lab">Ingrédient 2</b><p class="ing-nom">Gousse de vanille.</p>
 </div>
 </div>
@@ -516,6 +516,28 @@ padding:26px 28px;margin-top:56px;border:none}
  .sucres{padding-bottom:22px!important}
  .idees{margin-top:24px!important}
  .idees h3{text-align:center!important}
+}
+</style>
+<style>
+.ing-fleche-m{display:none}
+@media(max-width:680px){
+ .ing-note{display:flex!important;flex-direction:column!important;align-items:center!important;
+   width:100%!important;max-width:290px!important;margin:6px auto 0!important;gap:0!important}
+ .ing-note .ing-fleche{display:none!important}
+ .ing-fleche-m{display:block!important;width:72px!important;height:78px!important;margin:0 auto 2px!important}
+ .ing-note p{text-align:center!important;font-size:13px!important;line-height:1.45!important;margin:0!important}
+ .ing-lab,.ing-nom{display:none!important}
+}
+</style>
+<style>
+.ing-fleche-m{display:none}
+@media(max-width:680px){
+ .ing-txt{position:static!important;transform:none!important;width:100%!important;max-width:300px!important;
+   margin:8px auto 0!important;display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important}
+ .ing-txt .ing-fleche{display:none!important}
+ .ing-fleche-m{display:block!important;width:70px!important;height:76px!important;margin:0 auto 2px!important}
+ .ing-txt p{text-align:center!important;font-size:13px!important;line-height:1.45!important;margin:0!important;width:100%!important}
+ .ing-lab,.ing-nom{display:none!important}
 }
 </style>
 </body></html>
