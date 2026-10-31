@@ -6,10 +6,12 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--kraft);color:var(--ink);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 .wrap{max-width:860px;margin:0 auto;padding:0 22px}
-header{padding:20px 0;border-bottom:2px solid var(--ink);margin-bottom:34px;display:flex;align-items:baseline;gap:14px}
-header a{color:var(--ink);text-decoration:none;font-weight:800;letter-spacing:-.02em;font-size:22px}
-header span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.6}
-h1{font-size:clamp(26px,4vw,38px);letter-spacing:-.02em;line-height:1.1;margin-bottom:6px}
+header{padding:16px 0 14px;border-bottom:2px solid var(--ink);margin-bottom:0;display:flex;align-items:center;gap:10px}
+header .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+header .mark{height:44px;width:auto;display:block}
+header .word{font-size:38px;font-weight:800;letter-spacing:-.03em;line-height:1;display:block}
+
+h1{font-size:clamp(26px,4vw,38px);letter-spacing:-.02em;line-height:1.1;margin:52px 0 8px}
 .lead{opacity:.75;margin-bottom:30px}
 h2{font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.6;margin:30px 0 10px}
 .cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
@@ -40,8 +42,21 @@ button.pay:disabled{opacity:.35;cursor:not-allowed}
 footer{border-top:2px solid var(--ink);margin-top:40px;padding:20px 0 60px;font-size:13px;opacity:.75}
 footer a{color:inherit}
 @media(max-width:680px){.cols{grid-template-columns:minmax(0,1fr)}.form{grid-template-columns:minmax(0,1fr)}}
-</style></head><body>
-<header class="wrap"><a href="index.html">GOUSSE</a><span>commander</span></header>
+</style><link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="canonical" href="https://lagousse.fr/commander.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Gousse">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Commander — Gousse">
+<meta property="og:description" content="Quatre formats, deux sucres : betterave et canne. Livraison offerte dès 25 €.">
+<meta property="og:url" content="https://lagousse.fr/commander.html">
+<meta property="og:image" content="https://lagousse.fr/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+</head><body>
+<header class="wrap"><a class="brand" href="index.html" aria-label="Gousse — accueil"><svg class="mark" xmlns="http://www.w3.org/2000/svg" viewBox="0.02 -0.03 15.90 99.97"><path d="M5.80 0.00 C6.09 -0.11 6.45 -0.07 6.85 0.07 C7.25 0.21 7.81 0.51 8.22 0.81 C8.63 1.11 8.97 1.46 9.29 1.87 C9.61 2.27 9.82 2.42 10.14 3.24 C10.46 4.06 10.92 5.29 11.21 6.79 C11.50 8.29 11.99 9.27 11.87 12.25 C11.75 15.23 10.80 19.94 10.49 24.68 C10.18 29.42 9.91 35.06 10.02 40.66 C10.13 46.27 10.99 54.68 11.14 58.30 C11.29 61.91 10.91 60.50 10.91 62.36 C10.92 64.22 10.95 66.58 11.17 69.46 C11.40 72.34 12.06 76.61 12.27 79.61 C12.47 82.61 12.50 85.36 12.41 87.47 C12.32 89.59 12.00 90.86 11.71 92.29 C11.42 93.73 10.80 95.04 10.67 96.10 C10.53 97.16 11.07 98.09 10.92 98.67 C10.77 99.25 10.27 99.35 9.76 99.57 C9.25 99.79 8.62 99.99 7.86 100.00 C7.10 100.01 5.76 99.74 5.20 99.61 C4.65 99.48 4.70 99.38 4.55 99.23 C4.39 99.09 4.26 99.17 4.27 98.73 C4.28 98.29 4.80 97.74 4.60 96.61 C4.41 95.47 3.69 94.51 3.11 91.91 C2.53 89.31 1.59 84.18 1.11 81.00 C0.64 77.83 0.46 75.74 0.28 72.89 C0.09 70.03 0.05 66.78 0.00 63.88 C-0.04 60.98 -0.05 57.56 0.00 55.51 C0.05 53.46 0.24 54.74 0.33 51.57 C0.41 48.40 0.32 40.60 0.51 36.48 C0.71 32.35 1.33 29.54 1.48 26.84 C1.64 24.13 1.39 21.66 1.44 20.24 C1.49 18.82 1.50 19.31 1.78 18.34 C2.06 17.36 2.80 15.53 3.11 14.40 C3.42 13.28 3.23 12.67 3.66 11.61 C4.09 10.56 5.10 9.27 5.69 8.06 C6.28 6.86 6.98 5.20 7.20 4.38 C7.42 3.56 7.28 3.46 7.00 3.14 C6.72 2.83 5.85 2.71 5.53 2.51 C5.22 2.31 5.17 2.24 5.11 1.94 C5.04 1.65 5.03 1.06 5.15 0.73 C5.27 0.41 5.52 0.11 5.80 0.00 Z" transform="translate(2.0,2.0) scale(0.96)" fill="#1b1712"/></svg><span class="word">GOUSSE</span></a></header>
 <div class="wrap">
 <h1>Quatre formats.<br>Deux sucres.</h1>
 <p class="lead">Livraison offerte dès 25 €. En dessous, 3,90 € en point relais.</p>
