@@ -120,16 +120,24 @@ inputs.forEach(i=>i.oninput=()=>{i.value=Math.max(0,Math.min(99,+i.value||0));ma
 document.querySelectorAll('input[name=port]').forEach(r=>r.onchange=maj);
 
 pay.onclick=async()=>{
-  const lignes=inputs.filter(i=>+i.value>0).map(i=>({label:i.dataset.label,qte:+i.value,prix:+i.dataset.price}));
-  const client={prenom:prenom.value,nom:nom.value,email:email.value,adresse:adresse.value,cp:cp.value,ville:ville.value,port:port()};
-  const manque=Object.entries(client).filter(([k,v])=>!v).map(([k])=>k);
+  const lignes=inputs.filter(i=>+i.value>0).map(i=>({label:i.dataset.label,qte:+i.value}));
+  const client={prenom:prenom.value.trim(),nom:nom.value.trim(),email:email.value.trim(),
+                adresse:adresse.value.trim(),cp:cp.value.trim(),ville:ville.value.trim(),port:port()};
   const n=document.getElementById('notice');
+  const manque=Object.entries(client).filter(([k,v])=>!v).map(([k])=>k);
+  if(!lignes.length){n.style.display='block';n.textContent='Votre panier est vide.';return;}
   if(manque.length){n.style.display='block';n.textContent='Il manque : '+manque.join(', ')+'.';return;}
-  n.style.display='block';n.textContent='Redirection vers le paiement…';
-  const r=await fetch('/.netlify/functions/creer-paiement',{method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({lignes,client})});
-  if(!r.ok){n.textContent='Le paiement n\'est pas encore branché. Votre commande : '+lignes.map(l=>l.qte+'× '+l.label).join(', ')+' — '+total().toFixed(2)+' €.';return;}
-  const {url}=await r.json(); if(url) location.href=url;
+  n.style.display='block';n.textContent='Redirection vers le paiement sécurisé…';
+  pay.disabled=true;
+  try{
+    const r=await fetch('/.netlify/functions/creer-paiement',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({lignes,client})});
+    const data=await r.json().catch(()=>({}));
+    if(!r.ok||!data.url){n.textContent=data.erreur||'Le paiement est momentanément indisponible. Réessayez dans un instant.';pay.disabled=false;return;}
+    location.href=data.url;
+  }catch(e){
+    n.textContent='Connexion interrompue. Vérifiez votre réseau et réessayez.';pay.disabled=false;
+  }
 };
 // pré-remplissage depuis le panier de l'accueil
 (function(){
