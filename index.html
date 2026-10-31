@@ -160,7 +160,7 @@ header .brand{justify-content:flex-start!important}
 <div class="ing">
 <div class="ing-cell">
   <div class="ing-ico"><svg class="ing-svg ing-cube" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L92 27 L50 49 L8 27 Z" fill="#1b1712"/><path d="M8 27 L50 49 L50 95 L8 73 Z" fill="none" stroke="#1b1712" stroke-width="4"/><path d="M92 27 L50 49 L50 95 L92 73 Z" fill="none" stroke="#1b1712" stroke-width="4"/></svg></div>
-  <svg class="ing-fleche f1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1b1712" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M95 92 C74 92 46 74 33 44 C30 36 29 27 31 19"/><path d="M42 27 C37 24 33 21 30.5 18 C25 23 22 28 20 33.5"/></svg>
+  <svg class="ing-fleche f1" viewBox="0 0 200 118" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1b1712" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M196 104 C177 112 155 106 144 92 C133 78 144 64 132 49 C117 31 83 20 30 17"/><path d="M46 24 C41 21.5 36 19.5 30 18 C34 12.5 38 8 43 4.5"/></svg>
   <div class="ing-txt"><p>Ça, c'est le sucre,<br>tu l'auras compris.</p></div>
   <b class="ing-lab">Ingrédient 1</b><p class="ing-nom">Sucre.</p>
 </div>
@@ -500,6 +500,14 @@ padding:20px 0;margin-top:56px}
  .ing-lab{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;opacity:.55;margin:0 0 5px}
  .ing-nom{display:block;font-size:15px;line-height:1.35}
  .ing::after{font-size:26px;padding:0 8px}
+}
+</style>
+<style>
+@media(min-width:681px){
+ .ing-cell:first-child .ing-ico{left:31%!important}
+ .ing-cell:first-child .ing-fleche{left:calc(31% + 0px)!important;top:calc(50% - 52px)!important;
+   width:200px!important;height:118px!important}
+ .ing-cell:first-child .ing-txt{left:calc(31% + 196px)!important}
 }
 </style>
 </body></html>
