@@ -16,6 +16,11 @@ const json = (code, body) => ({
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return json(405, { erreur: "Méthode non autorisée" });
 
+  // interrupteur : tant que la variable n'est pas sur "oui", rien n'est encaissable
+  if ((process.env.VENTES_OUVERTES || "").toLowerCase() !== "oui") {
+    return json(503, { erreur: "Les commandes ouvrent très bientôt. Le temps de recevoir les sachets." });
+  }
+
   const cle = process.env.STRIPE_SECRET_KEY;
   if (!cle) return json(500, { erreur: "Clé Stripe absente" });
 

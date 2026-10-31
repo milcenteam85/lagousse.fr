@@ -7,19 +7,29 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--kraft);color:var(--ink);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
 min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px}
-.box{max-width:620px;width:100%}
-h1{font-size:clamp(30px,6vw,52px);line-height:1.05;letter-spacing:-.03em;margin-bottom:18px}
-.pill{display:inline-block;background:#51b289;padding:8px 18px;border-radius:999px;font-size:12px;
+.box{max-width:640px;width:100%}
+h1{font-size:clamp(30px,6vw,54px);line-height:1.03;letter-spacing:-.03em;margin-bottom:20px}
+.pill{display:inline-block;background:#51b289;padding:8px 18px;border-radius:999px;font-size:11.5px;
 letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:26px}
-p{font-size:17px;line-height:1.55;margin-bottom:14px;max-width:48ch}
-small{display:block;font-size:13.5px;opacity:.65;margin-top:26px;line-height:1.5}
+p{font-size:17px;line-height:1.55;margin-bottom:15px;max-width:50ch}
+.ref{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.55;margin-top:26px}
+small{display:block;font-size:13.5px;opacity:.62;margin-top:14px;line-height:1.55}
 a{color:inherit}
 </style></head><body><div class="box">
 <div class="pill">Commande confirmée</div>
 <h1>C'est payé.<br>On s'en occupe.</h1>
-<p>Votre commande est enregistrée et vous allez recevoir une confirmation par e-mail de la part de Stripe.</p>
-<p>On prépare le sachet, on le scelle, et il part sous 48 heures.</p>
-<p>Une question ? <a href="mailto:contact@lagousse.fr">contact@lagousse.fr</a></p>
+<p>Merci. On a vérifié trois fois que le paiement était bien passé — on débute, on est prudents.</p>
+<p>Votre sachet part sous 48 heures. Le temps de le peser, de le souder, et de résister à l'envie d'en garder un pour nous.</p>
+<p>En attendant, une cuillère dans un yaourt nature. Vous nous en direz des nouvelles.</p>
+<div class="ref" id="ref"></div>
 <small>Gousse — sucre vanillé · Fabriqué en Vendée<br>
-<a href="index.html">Retour à l'accueil</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="cgv.html">CGV</a></small>
-</div></body></html>
+Une question : <a href="mailto:contact@lagousse.fr">contact@lagousse.fr</a><br>
+<a href="index.html">Retour à l'accueil</a> · <a href="cgv.html">CGV</a></small>
+</div>
+<script>
+(function(){
+  var p=new URLSearchParams(location.search), s=p.get('session_id');
+  if(s){ document.getElementById('ref').textContent = 'Référence : ' + s.slice(-10).toUpperCase(); }
+})();
+</script>
+</body></html>
