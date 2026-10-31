@@ -109,13 +109,13 @@ padding:4px 9px;border:1.2px solid #1b1712;background:transparent;color:#1b1712;
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <style>
-.bio{margin-top:44px}
-.bio .qui{border-top:2px solid var(--ink);padding-top:26px;max-width:640px}
+.bio{margin-top:34px}
+.bio .qui{max-width:640px}
 .bio .et{display:inline-block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;opacity:.55;margin-bottom:18px}
 .bio .txt{font-size:17px;line-height:1.55;margin-bottom:14px}
 .bio .fin{font-weight:600}
 .bio .sig{font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.5;margin-top:22px;white-space:nowrap}
-@media(max-width:680px){.bio{margin-top:44px}.bio .txt{font-size:16px}}
+@media(max-width:680px){.bio{margin-top:34px}.bio .txt{font-size:16px}}
 </style>
 <style>
 header{padding:22px 0 18px!important;border-bottom-width:3px!important}
@@ -222,7 +222,6 @@ header .brand{justify-content:flex-start!important}
   <div class="cc"><span class="n" id="kgc">0</span><span class="u">kJ</span></div>
   <div class="ct">
     <b>de kilojoules commandés depuis le début</b>
-    <span id="kgm">On compte pour de vrai. Pas de faux stock, pas de « il n'en reste que 3 ».</span>
   </div>
 </section>
 <section class="bio wrap">
@@ -440,20 +439,13 @@ padding:20px 0;margin-top:56px}
 </style>
 <script>
 (function(){
-  var n=document.getElementById('kgc'), m=document.getElementById('kgm');
+  var n=document.getElementById('kgc');
   if(!n) return;
   var KJ_PAR_KG = 17000;            // 1700 kJ aux 100 g
-  function phrase(kj){
-    if(kj===0) return "Zéro. On a ouvert il y a peu — ça va venir.";
-    if(kj<170000) return "C'est un début. Le yaourt grec, ça se mérite.";
-    if(kj<1700000) return "Ça commence à faire des yaourts.";
-    return "Ça en fait, des yaourts.";
-  }
   fetch('/.netlify/functions/compteur').then(function(r){return r.json();}).then(function(d){
     var kg = typeof d.kg === 'number' ? d.kg : 0;
     var kj = Math.round(kg * KJ_PAR_KG);
     n.textContent = kj.toLocaleString('fr-FR');
-    m.textContent = phrase(kj);
   }).catch(function(){ });
 })();
 </script>
