@@ -212,6 +212,13 @@ header .brand{justify-content:flex-start!important}
 <p class="note">Doypack kraft refermable. Une seule encre, pas de plastique inutile.</p>
 </section>
 
+<section class="compteur wrap" aria-live="polite">
+  <div class="cc"><span class="n" id="kgc">0</span><span class="u">kg</span></div>
+  <div class="ct">
+    <b>de sucre commandés depuis le début</b>
+    <span id="kgm">On compte pour de vrai. Pas de faux stock, pas de « il n'en reste que 3 ».</span>
+  </div>
+</section>
 <section class="bio wrap">
   <div class="qui"><span class="et">Qui</span>
   <p class="txt">Moi c'est Benjamin, mais appelez-moi Monsieur MILCENT. On n'a pas élevé les cochons ensemble&nbsp;!</p>
@@ -414,4 +421,32 @@ body{width:100vw!important;max-width:100vw!important;overflow-x:hidden!important
  .deux .f2{transform:translate(30px,-2px)}
 }
 </style>
+<style>
+.compteur{display:flex;align-items:center;gap:22px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
+padding:20px 0;margin-top:56px}
+.compteur .cc{display:flex;align-items:baseline;gap:7px;flex:0 0 auto;min-width:96px}
+.compteur .n{font-size:clamp(38px,6vw,64px);font-weight:800;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.compteur .u{font-size:15px;font-weight:700;letter-spacing:.02em;opacity:.65}
+.compteur .ct{display:flex;flex-direction:column;gap:4px}
+.compteur .ct b{font-size:14px;font-weight:600;letter-spacing:.01em}
+.compteur .ct span{font-size:13px;opacity:.62;line-height:1.4}
+@media(max-width:680px){.compteur{gap:14px;margin-top:38px;padding:16px 0}.compteur .ct b{font-size:12.5px}.compteur .ct span{font-size:11.5px}}
+</style>
+<script>
+(function(){
+  var n=document.getElementById('kgc'), m=document.getElementById('kgm');
+  if(!n) return;
+  function dire(kg){
+    if(kg===0) return "Zéro. On a ouvert il y a peu — ça va venir.";
+    if(kg<10) return "C'est un début. Le yaourt grec, ça se mérite.";
+    if(kg<100) return "Ça commence à faire des yaourts.";
+    return "Ça en fait, des yaourts.";
+  }
+  fetch('/.netlify/functions/compteur').then(function(r){return r.json();}).then(function(d){
+    var kg = typeof d.kg === 'number' ? d.kg : 0;
+    n.textContent = kg.toLocaleString('fr-FR', {minimumFractionDigits:kg%1?2:0, maximumFractionDigits:2});
+    m.textContent = dire(kg);
+  }).catch(function(){ /* hors ligne : on laisse le tiret */ });
+})();
+</script>
 </body></html>

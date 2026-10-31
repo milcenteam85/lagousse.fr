@@ -6,6 +6,7 @@ const PRIX = { "100 g": 500, "250 g": 900, "500 g": 1500, "1 kg": 2500 };
 const PORT_RELAIS = 390;
 const PORT_DOMICILE = 690;
 const FRANCO = 2500;
+const POIDS = { "100 g": 0.1, "250 g": 0.25, "500 g": 0.5, "1 kg": 1 };
 
 const json = (code, body) => ({
   statusCode: code,
@@ -54,6 +55,7 @@ exports.handler = async (event) => {
 
   let total = 0,
     index = 0,
+    kilos = 0,
     resume = [];
 
   for (const l of lignes) {
@@ -65,6 +67,7 @@ exports.handler = async (event) => {
     const montant = PRIX[format];
     const variete = /canne/i.test(label) ? "canne" : "betterave";
     total += montant * qte;
+    kilos += (POIDS[format] || 0) * qte;
 
     params.set(`line_items[${index}][quantity]`, String(qte));
     params.set(`line_items[${index}][price_data][currency]`, "eur");
@@ -87,6 +90,7 @@ exports.handler = async (event) => {
     montantPort === 0 ? "Livraison offerte" : (domicile ? "Livraison à domicile" : "Point relais"));
 
   params.set("metadata[commande]", resume.join(" / ").slice(0, 480));
+  params.set("metadata[kg]", String(Math.round(kilos * 1000) / 1000));
   params.set("metadata[nom]", `${client.prenom} ${client.nom}`.slice(0, 480));
 
   const reponse = await fetch("https://api.stripe.com/v1/checkout/sessions", {
